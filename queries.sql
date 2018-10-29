@@ -1,3 +1,11 @@
+/* Query to see an NPC's loot tables */
+SELECT npc.name, lte.*, lde.chance, lde.multiplier, i.Name
+FROM npc_types npc
+INNER JOIN loottable_entries lte ON npc.loottable_id = lte.loottable_id
+INNER JOIN lootdrop_entries lde ON lte.lootdrop_id = lde.lootdrop_id
+INNER JOIN items i ON lde.item_id = i.id
+WHERE npc.name LIKE "%Trakanon";
+
 /* Query to find item drop chances */
 SELECT i.name, le.chance
 FROM items i
@@ -51,6 +59,7 @@ UPDATE zone_points SET target_heading = 428 WHERE zone = 'firiona' AND target_zo
 UPDATE zone_points SET target_heading = 63 WHERE zone = 'freportw' AND target_zone_id = 22;
 UPDATE zone_points SET target_heading = 380 WHERE zone = 'greatdivide' AND target_zone_id = 112;
 UPDATE zone_points SET target_heading = 150 WHERE zone = 'highpasshold' AND target_zone_id = 20;
+UPDATE zone_points SET target_heading = 130 WHERE zone = 'iceclad' AND target_zone_id = 116;
 UPDATE zone_points SET target_heading = 391 WHERE zone = 'innothule' AND target_zone_id = 35;
 UPDATE zone_points SET target_heading = 383, target_y = -34.97, target_x = 33.2, target_z = 3.44 WHERE zone = 'innothule' AND target_zone_id = 65;
 UPDATE zone_points SET target_heading = 399 WHERE zone = 'kithicor' AND target_zone_id = 19;
@@ -63,6 +72,7 @@ UPDATE zone_points SET target_heading = 269 WHERE zone = 'rivervale' AND target_
 UPDATE zone_points SET target_heading = 231 WHERE zone = 'runnyeye' AND target_zone_id = 33;
 UPDATE zone_points SET target_heading = 261 WHERE zone = 'skyfire' AND target_zone_id = 87;
 UPDATE zone_points SET target_heading = 235 WHERE zone = 'sro' AND target_zone_id = 46;
+UPDATE zone_points SET target_heading = 288 WHERE zone = 'wakening' AND target_zone_id = 113;
 
 /* Pick old starting zone Freeport */
 /* Warriors to West Freeport */
